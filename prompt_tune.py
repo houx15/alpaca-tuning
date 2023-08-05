@@ -89,6 +89,8 @@ class PromptTune(object):
     def __init__(self, topic, model_abbr, eight_bit) -> None:
         self.topic = topic
 
+        self.translator = None
+
         self.load_model_and_tokenizer(model_abbr, eight_bit)
         self.load_result_translator()
         self.load_dataset()
