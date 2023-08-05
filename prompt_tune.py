@@ -133,7 +133,7 @@ class PromptTune(object):
 
         # prompt based
         convert_label_dict = {}
-        for k, v in self.translator['label'].items():
+        for k, v in self.translator['labels'].items():
             convert_label_dict[v] = k
         
         self.train_df['label'] = self.train_df['label'].map(convert_label_dict)
