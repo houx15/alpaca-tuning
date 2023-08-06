@@ -244,6 +244,7 @@ class PromptTune(object):
         group_by_length: bool = False,  # faster, but produces an odd training loss curve,
         resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
     ):
+        torch._dynamo.config.verbose=True
         print(
             f"Training Alpaca-LoRA model with params:\n"
             f"output_dir: {output_dir}\n"
@@ -288,7 +289,7 @@ class PromptTune(object):
         '''
         TODO: configurized the LORA WEIGHTS
         '''
-        LORA_WEIGHTS = "tloen/alpaca-lora-7b"
+        LORA_WEIGHTS = "./alpaca-lora-7b"
         model = PeftModel.from_pretrained(
             model,
             LORA_WEIGHTS,
